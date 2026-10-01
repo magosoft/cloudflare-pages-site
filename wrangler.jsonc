@@ -1,0 +1,8 @@
+{
+  "name": "real-progreso",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist/real-progreso/browser",
+    "not_found_handling": "single-page-application"
+  }
+}
