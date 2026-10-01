@@ -1,0 +1,3 @@
+.match-overlay {
+  background: linear-gradient(180deg, var(--color-rp-abyss) 0%, rgb(14 44 87 / 0.86) 30%, rgb(14 44 87 / 0.9) 70%, var(--color-rp-navy) 100%);
+}

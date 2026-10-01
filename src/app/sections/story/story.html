@@ -1,0 +1,37 @@
+<section id="club" class="relative overflow-hidden bg-rp-navy pt-27.5 pb-[calc(100px+3vw)]">
+  <div class="jersey-stripes pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+  <div class="wrap relative grid items-center gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+    <figure rpReveal class="story-media relative isolate mr-3.5 mb-3.5">
+      <div class="story-clip relative aspect-4/5 overflow-hidden rounded-[18px]">
+        <img ngSrc="photo-1486286701208-1d58e9338013" fill sizes="(min-width: 900px) 45vw, 100vw" alt="Balón de fútbol sobre el césped de la cancha" class="object-cover" />
+      </div>
+      <figcaption class="tag-clip absolute bottom-7 -left-0.5 bg-rp-yellow px-5.5 py-3.5 font-display text-[1.4rem] leading-none font-semibold text-rp-abyss uppercase">
+        <strong>Desde el primer</strong><br />pase, juntos.
+      </figcaption>
+    </figure>
+
+    <div>
+      <p rpReveal class="kicker">Nuestra historia</p>
+      <h2 rpReveal class="section-title">Real <span class="text-rp-yellow">Progreso</span></h2>
+      <p rpReveal class="mb-4 max-w-140 text-[1.08rem] text-white/72">
+        Somos un club de fútbol que nace con la ilusión de formar buenos jugadores y mejores personas. En Real Progreso creemos en el
+        esfuerzo, el trabajo en equipo y los valores dentro y fuera de la cancha.
+      </p>
+      <p rpReveal class="max-w-140 text-[1.08rem] text-white/72">
+        Nuestro objetivo es seguir creciendo, paso a paso, con la fuerza de nuestra gente y el apoyo de nuestras familias.
+      </p>
+
+      <ul class="mt-9 grid grid-cols-2 gap-x-4 gap-y-5.5">
+        @for (value of values; track value.icon; let i = $index) {
+          <li [rpReveal]="i * 80" class="group flex items-center gap-3.5 font-display text-[1.15rem] leading-none font-extrabold tracking-[.03em] uppercase">
+            <span class="grid size-14.5 shrink-0 place-items-center rounded-full bg-rp-yellow text-rp-abyss shadow-[0_0_0_4px_var(--color-rp-navy),0_0_0_6px_rgb(223_154_49/.6)] transition duration-350 ease-sport group-hover:scale-108 group-hover:-rotate-12 group-hover:bg-rp-bright">
+              <rp-icon [name]="value.icon" class="size-7" />
+            </span>
+            <span>{{ value.lines[0] }}<br />{{ value.lines[1] }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

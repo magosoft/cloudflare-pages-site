@@ -1,0 +1,10 @@
+.cta-overlay {
+  background: linear-gradient(115deg, rgb(12 1 28 / 0.95) 0%, rgb(14 44 87 / 0.85) 45%, rgb(56 0 255 / 0.82) 100%);
+}
+
+.cta-title {
+  background: linear-gradient(180deg, #fff 50%, var(--color-rp-yellow) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

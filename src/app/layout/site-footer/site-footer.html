@@ -1,0 +1,38 @@
+<footer class="relative border-t-4 border-rp-violet bg-rp-abyss pt-17.5 pb-7 before:absolute before:-top-1 before:right-0 before:h-1 before:w-[30%] before:bg-linear-to-r before:from-rp-yellow before:to-rp-gold">
+  <div class="wrap">
+    <div class="grid gap-8.5 border-b border-white/10 pb-10 lg:grid-cols-[1.2fr_1fr_auto] lg:items-center">
+      <div class="flex items-center gap-4">
+        <img ngSrc="escudo-real-progreso.png" width="430" height="491" alt="Escudo Real Progreso F.C." class="h-auto w-19 drop-shadow-[0_0_24px_rgb(56_0_255/.6)]" />
+        <div>
+          <strong class="mb-1.5 block font-display text-[1.7rem] leading-none font-black tracking-[.03em]">REAL PROGRESO F.C.</strong>
+          <small class="text-[.72rem] font-semibold tracking-[.24em] text-rp-yellow">PASIÓN • UNIÓN • FÚTBOL</small>
+        </div>
+      </div>
+
+      <p class="font-display text-2xl leading-[1.1] font-semibold uppercase">
+        Real Progreso F.C.<br /><em class="text-rp-gold not-italic">Juntos por un mismo sueño.</em>
+      </p>
+
+      <ul class="flex gap-3" aria-label="Redes sociales">
+        @for (social of socials; track social.label) {
+          <li>
+            <a
+              [href]="social.href"
+              [attr.aria-label]="social.label"
+              [attr.target]="social.href.startsWith('http') ? '_blank' : null"
+              [attr.rel]="social.href.startsWith('http') ? 'noopener' : null"
+              class="grid size-12 place-items-center rounded-full border border-white/10 bg-white/4 transition duration-250 hover:-translate-y-0.75 hover:bg-rp-yellow hover:text-rp-abyss"
+            >
+              <rp-icon [name]="social.icon" class="size-5.5" />
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="flex flex-wrap justify-between gap-2.5 pt-6 text-sm text-white/72">
+      <p>© 2026 Real Progreso F.C. Todos los derechos reservados.</p>
+      <a href="#inicio" class="hover:text-rp-yellow">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>

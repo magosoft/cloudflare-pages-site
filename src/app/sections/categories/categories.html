@@ -1,0 +1,27 @@
+<section id="categorias" class="bg-rp-abyss pt-[calc(100px+3vw)] pb-25">
+  <div class="wrap">
+    <header class="mb-11 grid items-end gap-4.5 lg:grid-cols-[1fr_auto]">
+      <div>
+        <p rpReveal class="kicker">Categorías</p>
+        <h2 rpReveal class="section-title">Un lugar para<br /><span class="text-rp-yellow">cada edad</span></h2>
+      </div>
+      <p rpReveal class="max-w-105 text-lg font-medium text-white/72">
+        Entrenamientos adaptados a cada etapa, con entrenadores comprometidos con el crecimiento deportivo y personal.
+      </p>
+    </header>
+
+    <ol class="grid gap-3.5 sm:grid-cols-2 xl:grid-cols-4">
+      @for (category of categories; track category.tag; let i = $index) {
+        <li [rpReveal]="i * 80">
+          <div
+            class="relative grid h-full grid-cols-[auto_1fr] items-center gap-x-4.5 gap-y-1 overflow-hidden rounded-[18px] border border-white/10 bg-linear-135 from-rp-navy/60 to-rp-abyss/60 px-5.5 py-6 transition duration-350 ease-sport after:absolute after:inset-y-0 after:-right-7.5 after:w-15 after:-skew-x-24 after:bg-rp-violet after:opacity-50 after:transition-all after:duration-400 hover:-translate-y-1 hover:border-rp-yellow hover:after:-right-2.5 hover:after:opacity-100 xl:grid-cols-1 xl:content-start xl:px-6 xl:pt-7 xl:pb-8"
+          >
+            <span class="row-span-2 rounded-md bg-rp-yellow px-3.5 py-2.5 font-display text-2xl font-black text-rp-abyss xl:row-span-1 xl:mb-4.5 xl:justify-self-start">{{ category.tag }}</span>
+            <strong class="font-display text-[1.6rem] leading-none font-extrabold uppercase">{{ category.name }}</strong>
+            <small class="text-sm text-white/72">{{ category.ages }}</small>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

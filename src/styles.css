@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+/* ==========================================================
+   REAL PROGRESO F.C. — Paleta oficial del escudo
+   ========================================================== */
+@theme static {
+  --color-rp-violet: #3800ff;
+  --color-rp-yellow: #fad727;
+  --color-rp-navy: #0e2c57;
+  --color-rp-abyss: #0c011c;
+  --color-rp-gold: #df9a31;
+  --color-rp-bright: #fbf354;
+
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --font-sans: 'Archivo', 'Segoe UI', sans-serif;
+
+  /* lg = tablet horizontal, xl = menú de escritorio */
+  --breakpoint-lg: 56.25rem;
+  --breakpoint-xl: 68.75rem;
+
+  --ease-sport: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-hero-zoom: rp-hero-zoom 18s var(--ease-sport) both;
+  --animate-float: rp-float 6s ease-in-out infinite;
+  --animate-halo: rp-halo 5s ease-in-out infinite;
+  --animate-marquee: rp-marquee 28s linear infinite;
+  --animate-spin-slow: rp-spin 8s linear infinite;
+  --animate-ring: rp-ring 2.2s ease-out infinite;
+  --animate-cue: rp-cue 1.8s infinite;
+
+  @keyframes rp-hero-zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+  @keyframes rp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes rp-halo { 0%, 100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.05); opacity: 1; } }
+  @keyframes rp-marquee { to { transform: translateX(-50%); } }
+  @keyframes rp-spin { to { transform: rotate(360deg); } }
+  @keyframes rp-ring { from { transform: scale(0.9); opacity: 1; } to { transform: scale(1.35); opacity: 0; } }
+  @keyframes rp-cue { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(16px); opacity: 0; } 100% { opacity: 0; } }
+}
+
+@layer base {
+  :root { --header-h: 72px; }
+  @media (width >= 56.25rem) { :root { --header-h: 84px; } }
+
+  html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+  body { @apply overflow-x-hidden bg-rp-abyss font-sans leading-relaxed text-white antialiased; }
+  h1, h2, h3 { @apply font-display leading-[.92] tracking-[.01em] uppercase; }
+  :focus-visible { outline: 3px solid var(--color-rp-yellow); outline-offset: 3px; }
+
+  /* Grano sutil */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ---------- Utilidades de marca ---------- */
+@utility wrap {
+  width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 16px;
+  @media (width >= 40rem) { padding-inline: 28px; }
+}
+
+@utility text-outline { color: transparent; -webkit-text-stroke: 2px var(--color-rp-yellow); }
+
+@utility jersey-stripes {
+  background-image: repeating-linear-gradient(-55deg, transparent 0 42px, rgb(255 255 255 / 0.022) 42px 84px);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@utility kicker {
+  display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  font-family: var(--font-display); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--color-rp-yellow);
+  &::before { content: ''; width: 34px; height: 4px; background: var(--color-rp-violet); transform: skewX(-30deg); }
+}
+
+@utility section-title { font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 900; margin-bottom: 22px; }
+
+/* Botón base (el display lo pone cada uso: inline-flex / hidden xl:inline-flex) */
+@utility btn {
+  align-items: center; justify-content: center; gap: 0.6em; padding: 0.8em 1.4em;
+  font-family: var(--font-display); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+  border: 2px solid transparent; border-radius: 4px; cursor: pointer;
+  transition: transform 0.25s var(--ease-sport), background-color 0.25s, color 0.25s, box-shadow 0.25s, border-color 0.25s;
+  &:active { transform: scale(0.97); }
+  & .arrow { transition: transform 0.25s var(--ease-sport); }
+  &:hover .arrow { transform: translateX(5px); }
+}
+
+@utility btn-yellow {
+  background: var(--color-rp-yellow); color: var(--color-rp-abyss);
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  &:hover { background: var(--color-rp-bright); box-shadow: 0 10px 30px -10px rgb(250 215 39 / 0.7); }
+}
+
+@utility btn-ghost {
+  border-color: rgb(255 255 255 / 0.5); color: #fff;
+  &:hover { border-color: var(--color-rp-yellow); color: var(--color-rp-yellow); }
+}
+
+/* ---------- Directiva rpReveal ---------- */
+.rp-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease-sport), transform 0.8s var(--ease-sport); }
+.rp-reveal.rp-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .rp-reveal { opacity: 1; transform: none; }
+}

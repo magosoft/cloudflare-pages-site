@@ -1,0 +1,24 @@
+<section id="equipo" class="team-band relative z-10 -my-[3vw] overflow-hidden bg-rp-yellow pt-[calc(100px+3vw)] pb-[calc(110px+3vw)] text-rp-abyss">
+  <div class="team-band-stripes pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <!-- El león como marca de agua -->
+  <div
+    class="pointer-events-none absolute top-1/2 -right-[8%] aspect-430/491 w-[min(90vw,760px)] -translate-y-1/2 -rotate-8 bg-[url(/escudo-real-progreso.png)] bg-contain bg-center bg-no-repeat opacity-10 mix-blend-multiply grayscale contrast-140"
+    aria-hidden="true"
+  ></div>
+
+  <div class="wrap relative">
+    <header class="mb-11 grid items-end gap-4.5 lg:grid-cols-[1fr_auto]">
+      <div>
+        <p rpReveal class="kicker text-rp-navy!">Nuestro equipo</p>
+        <h2 rpReveal class="section-title text-rp-abyss">Jugadores que<br />sueñan en grande</h2>
+      </div>
+      <p rpReveal class="max-w-105 text-lg font-medium text-rp-navy">Con esfuerzo, talento y unión, seguimos construyendo un gran equipo.</p>
+    </header>
+
+    <div class="grid gap-5.5 sm:grid-cols-2 xl:grid-cols-4">
+      @for (player of players; track player.number; let i = $index) {
+        <rp-player-card [player]="player" [rpReveal]="i * 80" />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+<header
+  class="group fixed inset-x-0 top-0 z-50 h-(--header-h) border-b border-white/10 bg-linear-to-r from-rp-abyss/95 to-rp-navy/90 backdrop-blur-md transition-shadow duration-300 data-[scrolled=true]:shadow-[0_10px_40px_-10px_rgb(0_0_0/.7)]"
+  [attr.data-scrolled]="scrolled()"
+>
+  <!-- Filo violeta · amarillo · dorado al hacer scroll -->
+  <span
+    class="absolute inset-x-0 -bottom-px h-0.75 origin-left scale-x-0 bg-[linear-gradient(90deg,var(--color-rp-violet)_0_60%,var(--color-rp-yellow)_60%_85%,var(--color-rp-gold)_85%)] transition-transform duration-500 ease-sport group-data-[scrolled=true]:scale-x-100"
+    aria-hidden="true"
+  ></span>
+
+  <div class="mx-auto flex h-full max-w-340 items-center gap-5 px-4 sm:px-7">
+    <a href="#inicio" class="group/brand mr-auto flex min-w-0 items-center gap-3" aria-label="Real Progreso F.C. — inicio">
+      <img
+        ngSrc="escudo-real-progreso.png"
+        width="430"
+        height="491"
+        priority
+        alt=""
+        class="h-auto w-11 shrink-0 drop-shadow-[0_4px_10px_rgb(56_0_255/.55)] transition duration-400 ease-sport group-hover/brand:scale-106 group-hover/brand:-rotate-6 xl:w-13"
+      />
+      <span class="flex min-w-0 flex-col leading-[1.05]">
+        <strong class="font-display text-[1.2rem] font-black tracking-[.04em] whitespace-nowrap">REAL PROGRESO F.C.</strong>
+        <small class="text-[.62rem] font-semibold tracking-[.22em] whitespace-nowrap text-rp-yellow">PASIÓN • UNIÓN • FÚTBOL</small>
+      </span>
+    </a>
+
+    <nav
+      id="main-nav"
+      aria-label="Principal"
+      class="fixed inset-x-0 top-(--header-h) flex h-[calc(100dvh-var(--header-h))] flex-col bg-linear-160 from-rp-abyss to-rp-navy px-4 py-8 transition-[translate,visibility] duration-450 ease-sport xl:visible xl:static xl:mr-3 xl:h-auto xl:translate-x-0 xl:flex-row xl:gap-0.5 xl:bg-none xl:p-0"
+      [class.translate-x-full]="!menuOpen()"
+      [class.invisible]="!menuOpen()"
+    >
+      @for (link of links; track link.id) {
+        <a
+          [href]="'#' + link.id"
+          (click)="closeMenu()"
+          [attr.aria-current]="activeId() === link.id ? 'location' : null"
+          class="relative border-b border-white/10 py-2 font-display text-[2.2rem] font-extrabold tracking-[.04em] uppercase transition-colors hover:text-rp-yellow aria-[current=location]:text-rp-yellow xl:border-0 xl:px-3.5 xl:py-2.5 xl:text-[1.02rem] xl:tracking-[.12em] xl:after:absolute xl:after:inset-x-3.5 xl:after:bottom-0.5 xl:after:h-0.75 xl:after:origin-left xl:after:scale-x-0 xl:after:-skew-x-30 xl:after:bg-rp-yellow xl:after:transition-transform xl:after:duration-300 xl:hover:after:scale-x-100 xl:aria-[current=location]:after:scale-x-100"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-yellow mt-7 inline-flex self-start text-xl xl:hidden">
+        <rp-icon name="whatsapp" class="size-5" /> WhatsApp
+      </a>
+    </nav>
+
+    <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-yellow hidden text-[1.05rem] xl:inline-flex" aria-label="Escríbenos por WhatsApp">
+      <rp-icon name="whatsapp" class="size-5" />
+      <span>WhatsApp</span>
+    </a>
+
+    <button
+      type="button"
+      class="group/menu grid size-11 shrink-0 cursor-pointer place-content-center gap-1.5 xl:hidden"
+      aria-controls="main-nav"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      [attr.data-open]="menuOpen()"
+      (click)="toggleMenu()"
+    >
+      <span class="h-0.75 w-6.5 bg-white transition duration-300 group-data-[open=true]/menu:translate-y-[9px] group-data-[open=true]/menu:rotate-45"></span>
+      <span class="h-0.75 w-4.5 justify-self-end bg-rp-yellow transition duration-200 group-data-[open=true]/menu:opacity-0"></span>
+      <span class="h-0.75 w-6.5 bg-white transition duration-300 group-data-[open=true]/menu:-translate-y-[9px] group-data-[open=true]/menu:-rotate-45"></span>
+    </button>
+  </div>
+</header>
+
+<!-- WhatsApp flotante en móvil/tablet -->
+<a
+  [href]="whatsappUrl"
+  target="_blank"
+  rel="noopener"
+  aria-label="Escríbenos por WhatsApp"
+  class="fixed right-4 bottom-4 z-40 grid size-14.5 place-items-center rounded-full bg-rp-yellow text-rp-abyss shadow-[0_10px_30px_-6px_rgb(0_0_0/.6)] transition-transform duration-350 ease-sport lg:hidden"
+  [class.scale-0]="!showFloatingWhatsapp()"
+>
+  <rp-icon name="whatsapp" class="size-7.5" />
+</a>

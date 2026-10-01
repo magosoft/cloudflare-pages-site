@@ -1,0 +1,41 @@
+<section id="contacto" class="relative isolate overflow-hidden py-30">
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <img ngSrc="photo-1577223625816-7546f13df25d" fill sizes="100vw" alt="" class="object-cover" />
+    <div class="cta-overlay absolute inset-0"></div>
+    <span class="absolute -top-[20%] right-[24%] h-[140%] w-6.5 -skew-x-22 bg-rp-yellow"></span>
+    <span class="absolute -top-[20%] right-[calc(24%+46px)] h-[140%] w-2 -skew-x-22 bg-rp-gold opacity-80"></span>
+  </div>
+
+  <div class="wrap grid items-center gap-11 lg:grid-cols-[1.3fr_.9fr]">
+    <div>
+      <p rpReveal class="kicker">Inscripciones abiertas</p>
+      <h2 rpReveal class="cta-title mb-5.5 pt-[.1em] text-[clamp(3.6rem,14vw,8rem)] leading-[.95] font-black">¡Únete<br />al equipo!</h2>
+      <p rpReveal class="mb-8.5 max-w-120 text-xl text-white/72">
+        Si te gusta el fútbol y quieres ser parte de Real Progreso, ¡te estamos esperando!
+      </p>
+      <div rpReveal>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener" class="btn btn-yellow inline-flex text-[1.35rem]">
+          Quiero ser parte <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div rpReveal class="lg:justify-self-end">
+      <a
+        [href]="whatsappUrl"
+        target="_blank"
+        rel="noopener"
+        class="group flex items-center gap-4.5 rounded-[20px] border-2 border-rp-yellow/40 bg-rp-abyss/60 px-6 py-5.5 backdrop-blur-md transition duration-350 ease-sport hover:-translate-y-1.5 hover:border-rp-yellow hover:bg-rp-abyss/80"
+      >
+        <span class="relative grid size-16.5 shrink-0 place-items-center rounded-full bg-rp-yellow text-rp-abyss after:absolute after:-inset-1.5 after:animate-ring after:rounded-full after:border-2 after:border-rp-yellow">
+          <rp-icon name="whatsapp" class="size-8.5" />
+        </span>
+        <span class="flex flex-col leading-[1.1]">
+          <small class="mb-1 text-[.95rem] text-white/72">¿Tienes dudas?</small>
+          <strong class="font-display text-2xl font-extrabold uppercase">Escríbenos por WhatsApp</strong>
+        </span>
+        <span class="ml-auto text-2xl text-rp-yellow transition group-hover:translate-x-1.5" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

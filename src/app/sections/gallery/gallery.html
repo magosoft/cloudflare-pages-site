@@ -1,0 +1,32 @@
+<section id="galeria" class="overflow-hidden bg-rp-navy py-27.5">
+  <div class="wrap">
+    <header class="mb-11 grid grid-cols-[1fr_auto] items-end gap-4.5">
+      <div>
+        <p rpReveal class="kicker">Galería</p>
+        <h2 rpReveal class="section-title">Momentos<br />que nos <span class="text-rp-yellow">unen</span></h2>
+      </div>
+      <div rpReveal class="mb-5.5 flex gap-2.5">
+        <button type="button" (click)="scroll(-1)" aria-label="Fotos anteriores" class="grid size-13 cursor-pointer place-items-center rounded-full border-2 border-rp-yellow text-xl text-rp-yellow transition hover:bg-rp-yellow hover:text-rp-abyss active:scale-94">←</button>
+        <button type="button" (click)="scroll(1)" aria-label="Fotos siguientes" class="grid size-13 cursor-pointer place-items-center rounded-full border-2 border-rp-yellow text-xl text-rp-yellow transition hover:bg-rp-yellow hover:text-rp-abyss active:scale-94">→</button>
+      </div>
+    </header>
+  </div>
+
+  <div #track tabindex="0" role="region" aria-label="Galería de fotos" class="gallery-track no-scrollbar flex snap-x snap-mandatory items-end gap-4.5 overflow-x-auto scroll-smooth pt-1.5 pb-5">
+    @for (photo of photos; track photo.photo) {
+      <figure
+        class="group relative m-0 shrink-0 basis-[78%] snap-start overflow-hidden rounded-[18px] bg-rp-abyss before:absolute before:top-0 before:left-5.5 before:z-10 before:h-1.25 before:w-12 before:bg-rp-yellow sm:basis-[46%] lg:basis-[32%] xl:basis-1/4"
+        [class.h-100]="photo.tall"
+        [class.h-80]="!photo.tall"
+      >
+        <img [ngSrc]="photo.photo" fill sizes="(min-width: 1100px) 25vw, (min-width: 640px) 46vw, 78vw" [alt]="photo.alt" class="object-cover transition duration-800 ease-sport group-hover:scale-107" />
+        <div class="absolute inset-0 bg-linear-to-t from-rp-abyss/85 to-transparent to-50%" aria-hidden="true"></div>
+        <figcaption class="absolute bottom-4.5 left-5.5 z-10 font-display text-2xl font-extrabold uppercase">{{ photo.caption }}</figcaption>
+      </figure>
+    }
+  </div>
+
+  <div class="wrap mt-10 flex justify-center">
+    <a href="#" class="btn btn-yellow inline-flex text-lg">Ver más fotos <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>

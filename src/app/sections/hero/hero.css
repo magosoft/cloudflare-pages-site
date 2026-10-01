@@ -1,0 +1,25 @@
+.hero-overlay {
+  background:
+    linear-gradient(100deg, rgb(12 1 28 / 0.96) 0%, rgb(12 1 28 / 0.78) 38%, rgb(14 44 87 / 0.55) 66%, rgb(56 0 255 / 0.5) 100%),
+    linear-gradient(0deg, var(--color-rp-abyss) 0%, transparent 35%);
+}
+
+.hero-halo {
+  background: radial-gradient(circle, rgb(56 0 255 / 0.7), rgb(56 0 255 / 0.25) 40%, rgb(223 154 49 / 0.12) 55%, transparent 70%);
+}
+.hero-halo::before {
+  content: '';
+  position: absolute; inset: 6%; border-radius: 50%;
+  border: 1px dashed rgb(250 215 39 / 0.25);
+  animation: halo-spin 60s linear infinite;
+}
+.hero-halo::after {
+  content: '';
+  position: absolute; inset: 14%; border-radius: 50%;
+  border: 1px solid rgb(223 154 49 / 0.5);
+}
+@keyframes halo-spin { to { transform: rotate(360deg); } }
+
+.crest-glow {
+  filter: drop-shadow(0 30px 50px rgb(0 0 0 / 0.6)) drop-shadow(0 0 50px rgb(56 0 255 / 0.7));
+}

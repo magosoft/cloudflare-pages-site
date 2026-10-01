@@ -1,0 +1,61 @@
+<section id="partido" class="relative isolate overflow-hidden py-27.5">
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <img ngSrc="photo-1522778119026-d647f0596c20" fill sizes="100vw" alt="" class="object-cover" />
+    <div class="match-overlay absolute inset-0"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="text-center">
+      <p rpReveal class="kicker">{{ match.round }}</p>
+    </div>
+    <h2 rpReveal class="section-title text-center">Próximo partido</h2>
+
+    <div
+      rpReveal
+      class="relative mt-9 grid justify-items-center gap-7 rounded-3xl border border-white/10 bg-rp-abyss/55 px-5.5 py-10 text-center backdrop-blur-md before:absolute before:inset-x-[10%] before:-top-0.5 before:h-1 before:rounded before:bg-linear-to-r before:from-rp-violet before:via-rp-yellow before:to-rp-violet lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:px-10 lg:py-14"
+    >
+      <div>
+        <img ngSrc="escudo-real-progreso.png" width="430" height="491" alt="Escudo Real Progreso F.C." class="mx-auto h-34.5 w-auto drop-shadow-[0_0_30px_rgb(56_0_255/.7)] lg:h-43" />
+        <h3 class="mt-4 text-[2rem] font-black lg:text-[2.6rem]">{{ match.home }}</h3>
+        <span class="mt-2.5 inline-block rounded-full border border-white/10 px-3 py-1 text-[.72rem] font-bold tracking-[.25em] text-white/72 uppercase">Local</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-2.5">
+        <rp-icon name="ball" class="size-9 animate-spin-slow opacity-90" />
+        <span class="pr-[.08em] font-display text-[clamp(4.5rem,14vw,7.5rem)] leading-[.85] font-black text-rp-yellow italic [text-shadow:0_0_40px_rgb(250_215_39/.35)]">VS</span>
+        <div class="mt-2 flex gap-2" role="timer" [attr.aria-label]="countdownLabel()">
+          @for (unit of countdown(); track unit.label) {
+            <div class="min-w-14.5 rounded-lg border border-rp-violet/70 bg-rp-violet/25 px-1.5 py-2" aria-hidden="true">
+              <b class="block font-display text-[1.8rem] leading-none tabular-nums">{{ unit.value }}</b>
+              <small class="text-[.62rem] tracking-[.18em] text-white/72 uppercase">{{ unit.label }}</small>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <svg viewBox="0 0 120 140" class="mx-auto h-34.5 w-auto lg:h-43" role="img" aria-label="Escudo Rival FC">
+          <path d="M60 8 L108 26 V70 C108 100 86 124 60 134 C34 124 12 100 12 70 V26 Z" fill="#1d1d2b" stroke="#ffffff55" stroke-width="4" />
+          <text x="60" y="88" text-anchor="middle" font-family="Big Shoulders Display, sans-serif" font-weight="900" font-size="40" fill="#ffffffcc">RFC</text>
+        </svg>
+        <h3 class="mt-4 text-[2rem] font-black lg:text-[2.6rem]">{{ match.away }}</h3>
+        <span class="mt-2.5 inline-block rounded-full border border-white/10 px-3 py-1 text-[.72rem] font-bold tracking-[.25em] text-white/72 uppercase">Visitante</span>
+      </div>
+    </div>
+
+    <ul rpReveal class="mt-5.5 grid gap-3 sm:grid-cols-3">
+      <li class="flex items-center gap-3.5 rounded-[14px] border border-white/10 bg-rp-abyss/50 px-5 py-4">
+        <rp-icon name="calendar" class="size-6.5 text-rp-yellow" />
+        <span class="flex flex-col leading-[1.3] font-semibold"><small class="text-[.7rem] tracking-[.22em] text-white/72 uppercase">Fecha</small>{{ match.dateLabel }}</span>
+      </li>
+      <li class="flex items-center gap-3.5 rounded-[14px] border border-white/10 bg-rp-abyss/50 px-5 py-4">
+        <rp-icon name="clock" class="size-6.5 text-rp-yellow" />
+        <span class="flex flex-col leading-[1.3] font-semibold"><small class="text-[.7rem] tracking-[.22em] text-white/72 uppercase">Hora</small>{{ match.timeLabel }}</span>
+      </li>
+      <li class="flex items-center gap-3.5 rounded-[14px] border border-white/10 bg-rp-abyss/50 px-5 py-4">
+        <rp-icon name="pin" class="size-6.5 text-rp-yellow" />
+        <span class="flex flex-col leading-[1.3] font-semibold"><small class="text-[.7rem] tracking-[.22em] text-white/72 uppercase">Cancha</small>{{ match.venue }}</span>
+      </li>
+    </ul>
+  </div>
+</section>

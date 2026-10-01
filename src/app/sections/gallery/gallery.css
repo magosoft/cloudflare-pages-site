@@ -1,0 +1,10 @@
+/* Alinea la primera foto con el contenedor y deja ver la siguiente a la derecha */
+.gallery-track {
+  --edge: max(16px, calc((100vw - 1240px) / 2 + 16px));
+  padding-inline: var(--edge);
+  scroll-padding-inline: var(--edge);
+}
+
+@media (width >= 40rem) {
+  .gallery-track { --edge: max(28px, calc((100vw - 1240px) / 2 + 28px)); }
+}

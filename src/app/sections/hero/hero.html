@@ -1,0 +1,54 @@
+<section id="inicio" class="relative isolate flex min-h-svh items-center overflow-hidden pt-[calc(var(--header-h)+40px)] pb-28">
+  <div class="absolute inset-0 -z-20 animate-hero-zoom" aria-hidden="true">
+    <img ngSrc="photo-1431324155629-1a6deb1dec8d" fill priority sizes="100vw" alt="" class="object-cover object-[center_60%]" />
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+
+  <!-- Diagonales tipo camiseta -->
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <i class="absolute -top-[10%] right-[8%] h-[130%] w-22.5 -skew-x-24 bg-linear-to-b from-transparent via-rp-violet/60 via-40% to-rp-violet/10"></i>
+    <i class="absolute -top-[10%] right-[calc(8%+110px)] h-[130%] w-4.5 -skew-x-24 bg-linear-to-b from-transparent via-rp-yellow to-transparent opacity-85"></i>
+    <i class="absolute bottom-7.5 -left-15 h-10 w-60 -skew-x-24 bg-rp-yellow shadow-[0_0_0_10px_rgb(56_0_255/.6)]"></i>
+  </div>
+
+  <div class="wrap relative grid items-center gap-7 lg:grid-cols-[1.25fr_.9fr] lg:gap-10">
+    <div>
+      <p rpReveal class="mb-3.5 inline-flex items-center gap-3 font-display text-xs font-extrabold tracking-[.3em] text-white/85 uppercase before:size-2.5 before:rotate-45 before:bg-rp-yellow">
+        Club de fútbol juvenil · Temporada 2026
+      </p>
+
+      <h1 [rpReveal]="80" class="mb-6.5 flex flex-col text-[clamp(3.9rem,18vw,10.5rem)] leading-[.82] font-black">
+        <span>Real</span>
+        <span class="text-outline">Progreso</span>
+        <span class="mt-[.15em] flex items-center gap-[.3em] text-[.42em] tracking-[.12em] text-rp-yellow after:h-[.12em] after:flex-[0_0_1.6em] after:-skew-x-30 after:bg-rp-violet">F.C.</span>
+      </h1>
+
+      <p [rpReveal]="160" class="mb-8.5 font-display text-[clamp(1.6rem,5vw,2.4rem)] leading-[1.05] font-semibold uppercase">
+        Más que un equipo,<br /><em class="text-rp-yellow not-italic">una pasión.</em>
+      </p>
+
+      <div [rpReveal]="240" class="flex flex-wrap gap-3.5">
+        <a href="#club" class="btn btn-yellow inline-flex text-lg">Conoce nuestro club <span class="arrow" aria-hidden="true">→</span></a>
+        <a href="#partido" class="btn btn-ghost inline-flex text-lg">Próximo partido</a>
+      </div>
+    </div>
+
+    <div rpReveal class="relative -order-1 grid w-[min(52vw,240px)] place-items-center justify-self-center lg:order-none lg:mr-[4%] lg:w-[min(34vw,440px)] lg:justify-self-end" aria-hidden="true">
+      <div class="hero-halo absolute -inset-[22%] animate-halo rounded-full"></div>
+      <img ngSrc="escudo-real-progreso.png" width="430" height="491" priority alt="" class="crest-glow relative h-auto w-full animate-float" />
+    </div>
+  </div>
+
+  <a href="#club" aria-label="Bajar a Nuestra historia" class="absolute bottom-10 left-1/2 hidden h-11.5 w-7 -translate-x-1/2 rounded-2xl border-2 border-white/50 lg:block">
+    <span class="absolute top-2 left-1/2 -ml-0.5 h-2.25 w-1 animate-cue rounded-sm bg-rp-yellow"></span>
+  </a>
+</section>
+
+<!-- Cinta de valores -->
+<div class="relative z-10 -mt-8.5 -mb-3.5 -skew-y-2 overflow-hidden border-y-4 border-rp-violet bg-rp-yellow text-rp-abyss" aria-hidden="true">
+  <div class="flex w-max animate-marquee gap-7 py-3 font-display text-2xl font-black tracking-[.08em] uppercase">
+    @for (word of tickerWords; track $index) {
+      <span>{{ word }}</span><b class="text-rp-violet">★</b>
+    }
+  </div>
+</div>

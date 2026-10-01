@@ -1,0 +1,9 @@
+.story-media::before {
+  content: '';
+  position: absolute; inset: 18px -14px -14px 18px; z-index: -1;
+  border: 3px solid var(--color-rp-violet);
+  border-radius: 18px;
+}
+
+.story-clip { clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 0 100%); }
+.tag-clip { clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%); }
